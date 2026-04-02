@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster - Marketing Dept 4H with AI Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto+Mono:wght@500&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        .poster-container {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 12px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poster-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .time-badge {
+            font-family: 'Roboto Mono', monospace;
+            background: #3b82f6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .day-header {
+            background: #2563eb;
+            transform: skew(-10deg);
+        }
+
+        .day-header span {
+            transform: skew(10deg);
+            display: inline-block;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-btn {
+            @apply w-full py-2 rounded text-[10px] font-bold uppercase transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed;
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .loading-pulse { animation: pulse-soft 1.5s infinite; }
+
+        @media print {
+            body { background: white; color: black; }
+            .poster-container { border: none; background: white; color: black; }
+            .glass-card { border: 1px solid #ddd; background: transparent; color: black; }
+            .time-badge { background: #000; color: #fff; }
+            .ai-section { display: none; }
+        }
+    </style>
+</head>
+<body class="p-2 md:p-10 flex justify-center">
+
+    <div class="poster-container max-w-5xl w-full p-6 md:p-12 shadow-2xl rounded-sm">
+        
+        <!-- Header Section -->
+        <div class="text-center mb-12 relative z-10">
+            <h2 class="text-blue-400 font-bold tracking-[0.3em] uppercase text-sm mb-3">Est. 1929</h2>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-2 uppercase">Govt. Brojomohan College</h1>
+            <h3 class="text-2xl md:text-3xl font-bold text-blue-500 mb-6 italic">Department of Marketing</h3>
+            
+            <div class="flex justify-center items-center gap-4">
+                <div class="h-[2px] w-12 bg-blue-500"></div>
+                <span class="text-xl font-bold uppercase tracking-widest text-slate-300">Honours 4th Year (4H)</span>
+                <div class="h-[2px] w-12 bg-blue-500"></div>
+            </div>
+            <p class="text-slate-400 mt-2 font-medium uppercase tracking-tighter">Academic Session Class Routine</p>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            
+            <!-- Sunday -->
+            <div class="glass-card rounded-lg p-5">
+                <div class="day-header px-4 py-1 mb-4 inline-block">
+                    <span class="font-black uppercase text-sm">Sunday</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">09:15 AM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Bangladesh Economics</h4>
+                        <p class="text-xs text-slate-400">MKU • Room 402</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">02:15 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Entrepreneurship Dev.</h4>
+                        <p class="text-xs text-slate-400">MRK • Room 401</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monday -->
+            <div class="glass-card rounded-lg p-5">
+                <div class="day-header px-4 py-1 mb-4 inline-block">
+                    <span class="font-black uppercase text-sm">Monday</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">10:00 AM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Entrepreneurship Dev.</h4>
+                        <p class="text-xs text-slate-400">MRK • Room 402</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">10:45 AM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">International Business</h4>
+                        <p class="text-xs text-slate-400">MKU • Room 402</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="glass-card rounded-lg p-5">
+                <div class="day-header px-4 py-1 mb-4 inline-block">
+                    <span class="font-black uppercase text-sm">Tuesday</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">02:15 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm text-xs md:text-sm">Marketing Management</h4>
+                        <p class="text-xs text-slate-400">MRK • Room 401</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">03:00 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Marketing Research</h4>
+                        <p class="text-xs text-slate-400">MKU • Room 402</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">03:45 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Brand Management</h4>
+                        <p class="text-xs text-slate-400">MKU • Room 402</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="glass-card rounded-lg p-5">
+                <div class="day-header px-4 py-1 mb-4 inline-block">
+                    <span class="font-black uppercase text-sm">Wednesday</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">03:00 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Sales Management (I)</h4>
+                        <p class="text-xs text-slate-400">MRK • Room 402</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">03:45 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm">Sales Management (II)</h4>
+                        <p class="text-xs text-slate-400">MRK • Room 402</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="glass-card rounded-lg p-5">
+                <div class="day-header px-4 py-1 mb-4 inline-block">
+                    <span class="font-black uppercase text-sm">Thursday</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">03:00 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm text-xs md:text-sm">HR Management</h4>
+                        <p class="text-xs text-slate-400">MRK • Room 402</p>
+                    </div>
+                    <div class="border-l-2 border-blue-500 pl-3">
+                        <span class="time-badge">03:45 PM</span>
+                        <h4 class="font-bold text-white mt-1 uppercase text-sm text-xs md:text-sm">Marketing Management</h4>
+                        <p class="text-xs text-slate-400">MKU • Room 402</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✨ AI Academic Suite ✨ -->
+            <div class="glass-card rounded-lg p-5 flex flex-col ai-section border-blue-500/60 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-blue-600 p-1.5 rounded-md">
+                        <i class="fa-solid fa-brain text-white text-xs"></i>
+                    </div>
+                    <span class="font-black uppercase text-sm text-blue-400 tracking-tighter">AI Academic Suite</span>
+                </div>
+                
+                <div class="space-y-2">
+                    <select id="subjectSelect" class="w-full bg-slate-800 border border-slate-700 text-xs rounded p-2 text-white outline-none focus:border-blue-500 mb-2">
+                        <option value="Bangladesh Economics">Bangladesh Economics</option>
+                        <option value="Entrepreneurship Development">Entrepreneurship Dev.</option>
+                        <option value="International Business">International Business</option>
+                        <option value="Marketing Management">Marketing Management</option>
+                        <option value="Marketing Research">Marketing Research</option>
+                        <option value="Brand Management">Brand Management</option>
+                        <option value="Sales Management">Sales Management</option>
+                        <option value="Human Resource Management">HR Management</option>
+                    </select>
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="askGemini('summary')" class="ai-btn bg-blue-600 hover:bg-blue-700" title="Quick Summary">
+                            <span>Summary ✨</span>
+                        </button>
+                        <button onclick="askGemini('tips')" class="ai-btn bg-slate-700 hover:bg-slate-600" title="Study Strategy">
+                            <span>Study Tips ✨</span>
+                        </button>
+                        <button onclick="askGemini('case')" class="ai-btn bg-emerald-700 hover:bg-emerald-600" title="Generate Case Study">
+                            <span>Case Study ✨</span>
+                        </button>
+                        <button onclick="askGemini('career')" class="ai-btn bg-purple-700 hover:bg-purple-600" title="Career Insights">
+                            <span>Job Roles ✨</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-4 text-[9px] text-slate-500 italic text-center">
+                    Intelligent Assistant for Marketing Students
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AI Output Modal/Area -->
+        <div id="aiOutput" class="hidden mt-6 glass-card rounded-lg p-6 relative z-10 border-blue-400/30">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-3">
+                    <h4 id="aiTitle" class="font-bold text-blue-400 uppercase tracking-widest text-sm"></h4>
+                    <button id="speakBtn" onclick="toggleSpeech()" class="hidden text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-all">
+                        <i id="speakerIcon" class="fa-solid fa-volume-high"></i>
+                        <span class="text-[9px] font-bold uppercase tracking-widest">Listen ✨</span>
+                    </button>
+                </div>
+                <button onclick="closeAi()" class="text-slate-500 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="aiContent" class="text-xs text-slate-300 leading-relaxed space-y-2 max-h-80 overflow-y-auto pr-2"></div>
+        </div>
+
+        <!-- Footer / Branding -->
+        <div class="mt-12 text-center relative z-10 flex flex-col md:flex-row justify-between items-center gap-4 px-4">
+            <div class="flex gap-4 text-slate-500 order-2 md:order-1">
+                <ul class="text-[9px] text-left space-y-0.5 font-bold uppercase">
+                    <li>MKU: MUHAMMAD KUTUB UDDIN</li>
+                    <li>MRK: MD. MUANUR RAHMAN KHAN</li>
+                </ul>
+            </div>
+            
+            <div class="order-1 md:order-2">
+                <p class="text-[10px] uppercase tracking-[0.5em] font-bold text-slate-500">Excellence in Marketing Education</p>
+                <p class="text-[9px] text-red-400 mt-1 uppercase font-bold tracking-widest">Recess: 01:00 PM - 01:30 PM</p>
+            </div>
+
+            <div class="text-slate-500 order-3 flex gap-4 text-xl opacity-20">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <i class="fa-solid fa-university"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const apiKey = ""; // Runtime provides this
+        let currentText = "";
+        let audioContext = null;
+        let currentAudioSource = null;
+
+        async function askGemini(mode) {
+            const subject = document.getElementById('subjectSelect').value;
+            const outputArea = document.getElementById('aiOutput');
+            const contentArea = document.getElementById('aiContent');
+            const titleArea = document.getElementById('aiTitle');
+            const speakBtn = document.getElementById('speakBtn');
+            const allButtons = document.querySelectorAll('.ai-btn');
+            
+            stopSpeech();
+            outputArea.classList.remove('hidden');
+            speakBtn.classList.add('hidden');
+            
+            const titles = {
+                'summary': `Subject Summary: ${subject}`,
+                'tips': `Exam Success Guide: ${subject}`,
+                'case': `Practical Case Study: ${subject}`,
+                'career': `Marketing Career Paths: ${subject}`
+            };
+            titleArea.innerText = titles[mode];
+            contentArea.innerHTML = `<div class="loading-pulse flex items-center gap-2 text-blue-400"><i class="fa-solid fa-circle-notch fa-spin"></i> Consulting Gemini Expert...</div>`;
+            
+            allButtons.forEach(b => b.disabled = true);
+
+            const prompts = {
+                'summary': `Summarize the core concepts of "${subject}" for 4th year marketing students in 3 bullet points.`,
+                'tips': `Give 4 pro-tips for scoring high in "${subject}" finals at BM College.`,
+                'case': `Generate a real-world marketing problem related to "${subject}" that a student needs to solve. Keep it brief and scenario-based.`,
+                'career': `What are 3 specific job titles and their responsibilities for someone specializing in "${subject}"?`
+            };
+
+            const systemPrompt = "You are a professional Marketing Professor at BM College. Provide concise, high-impact guidance. Use simple but professional English. Use Markdown-like formatting (bullet points).";
+
+            try {
+                let resultText = "";
+                for (let i = 0; i < 5; i++) {
+                    try {
+                        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                contents: [{ parts: [{ text: prompts[mode] }] }],
+                                systemInstruction: { parts: [{ text: systemPrompt }] }
+                            })
+                        });
+                        if (!response.ok) throw new Error('Retry');
+                        const data = await response.json();
+                        resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No insights available.";
+                        break;
+                    } catch (e) {
+                        await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
+                    }
+                }
+
+                currentText = resultText;
+                const formatted = resultText
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\* /g, '• ')
+                    .split('\n').map(p => p.trim() ? `<p class="mb-2">${p}</p>` : '').join('');
+                
+                contentArea.innerHTML = formatted;
+                speakBtn.classList.remove('hidden');
+            } catch (error) {
+                contentArea.innerHTML = `<div class="text-red-400">Connection error. Please try again.</div>`;
+            } finally {
+                allButtons.forEach(b => b.disabled = false);
+            }
+        }
+
+        async function toggleSpeech() {
+            if (currentAudioSource) {
+                stopSpeech();
+                return;
+            }
+
+            const speakBtn = document.getElementById('speakBtn');
+            const icon = document.getElementById('speakerIcon');
+            const originalContent = speakBtn.innerHTML;
+            
+            speakBtn.disabled = true;
+            icon.className = "fa-solid fa-circle-notch fa-spin";
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: `Say in a helpful academic voice: ${currentText.replace(/[*#]/g, '')}` }] }],
+                        generationConfig: {
+                            responseModalities: ["AUDIO"],
+                            speechConfig: {
+                                voiceConfig: { prebuiltVoiceConfig: { voiceName: "Kore" } }
+                            }
+                        },
+                        model: "gemini-2.5-flash-preview-tts"
+                    })
+                });
+
+                const data = await response.json();
+                const base64Audio = data.candidates[0].content.parts[0].inlineData.data;
+                const mimeType = data.candidates[0].content.parts[0].inlineData.mimeType;
+                const sampleRate = parseInt(mimeType.split('rate=')[1]) || 24000;
+
+                const binaryString = atob(base64Audio);
+                const len = binaryString.length;
+                const bytes = new Uint8Array(len);
+                for (let i = 0; i < len; i++) bytes[i] = binaryString.charCodeAt(i);
+                
+                const pcmData = new Int16Array(bytes.buffer);
+                playWavFromPcm(pcmData, sampleRate);
+                
+                icon.className = "fa-solid fa-stop";
+                speakBtn.querySelector('span').innerText = "Stop ✨";
+            } catch (err) {
+                console.error("TTS failed", err);
+            } finally {
+                speakBtn.disabled = false;
+            }
+        }
+
+        function playWavFromPcm(pcmData, sampleRate) {
+            const wavBuffer = createWavFile(pcmData, sampleRate);
+            const blob = new Blob([wavBuffer], { type: 'audio/wav' });
+            const url = URL.createObjectURL(blob);
+            
+            if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            const audio = new Audio(url);
+            audio.onended = stopSpeech;
+            audio.play();
+            currentAudioSource = audio;
+        }
+
+        function createWavFile(pcmData, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcmData.length * 2);
+            const view = new DataView(buffer);
+            const writeString = (offset, string) => {
+                for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
+            };
+
+            writeString(0, 'RIFF');
+            view.setUint32(4, 32 + pcmData.length * 2, true);
+            writeString(8, 'WAVE');
+            writeString(12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, 1, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true);
+            view.setUint16(34, 16, true);
+            writeString(36, 'data');
+            view.setUint32(40, pcmData.length * 2, true);
+
+            for (let i = 0; i < pcmData.length; i++) {
+                view.setInt16(44 + i * 2, pcmData[i], true);
+            }
+            return buffer;
+        }
+
+        function stopSpeech() {
+            if (currentAudioSource) {
+                currentAudioSource.pause();
+                currentAudioSource = null;
+            }
+            const speakBtn = document.getElementById('speakBtn');
+            const icon = document.getElementById('speakerIcon');
+            if (speakBtn) {
+                icon.className = "fa-solid fa-volume-high";
+                speakBtn.querySelector('span').innerText = "Listen ✨";
+            }
+        }
+
+        function closeAi() {
+            stopSpeech();
+            document.getElementById('aiOutput').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
